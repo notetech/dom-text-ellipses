@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+    <style>
+        button {
+            transition:'all 2s'
+        }
+    </style>
+</head>
+<body>
+    <main>
+        <button id="btn-1">Some biiiiiiiiiiiiiiig text</button>
+        <a href="#" id="link">Lorem ipsum dolor sit amet, consectetur adipisicing elit. Repellendus esse a blanditiis sunt. Nostrum, explicabo. Quos repellat ut, omnis beatae magni soluta quis ratione corrupti ducimus, incidunt, at voluptate dolorum.'</a>
+    </main>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+<script src="src/text-ellipses.jquery.js"></script>
+<script>
+    
+
+    $(function(){
+        var text = 'A very Biiiiiiiiiiiiigggg text :)'
+        var btn1 = $('#btn-1')
+        //btn1.html(text)
+        //btn1.attr('title',btn1.html());
+        btn1.textEllipses("Lorem ipsum dolor sit amet",5);
+
+        $('a').textEllipses("Lorem ipsum dolor sit amet",5,{showTitle:true})
+
+        setTimeout(function() {
+
+            btn1.textEllipses("cooll--------",5);
+
+        },7000)
+    })
+</script>
+</body>
+</html>
