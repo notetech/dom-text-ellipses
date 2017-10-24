@@ -6,7 +6,7 @@ A Simple Jquery plugin for dom element text shortening
 
 Include text-ellipses.jquery.js into your html file
 ```html
-<script src="src/text-elipses.js"></script>
+<script src="src/text-ellipses.jquery.js"></script>
 
 ```
 
