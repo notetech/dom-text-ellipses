@@ -23,9 +23,10 @@
 
         // This is the easiest way to have default options.
         var settings = $.extend({
-            showTitle: false,
+            showTitle: true,
             className: 'text-ellipsis-element',
             dataValueName: 'real-value',
+            hoverExpand:false
         }, options);
 
         var el = this;
@@ -47,8 +48,13 @@
             el.attr('title', el.data(settings.dataValueName));
         }
 
+        if(!settings.hoverExpand) {
+            return el;
+        }
+
         // Events
 
+        
         el.off('mouseover mouseleave');
 
         el.on('mouseover', function () {
