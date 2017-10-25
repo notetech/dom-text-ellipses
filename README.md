@@ -18,8 +18,9 @@ $('.heading').textEllipses("Lorem ipsum dolor sit amet",5, options)
 
 ```javascript
     {
-        showTitle: true,
-        className: 'text-ellipsis-element',
-        dataValueName: 'real-value',
+        hoverExpand: true // Default false
+        showTitle: false, // Default true
+        className: 'some-class-name', // Default text-ellipsis-element
+        dataValueName: 'some-data-field-name', // Default real-value
     }
 ```
