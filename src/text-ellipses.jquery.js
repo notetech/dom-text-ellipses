@@ -15,6 +15,12 @@
 
     $.fn.textEllipses = function (text, n, options) {
 
+        this.default = {
+            showTitle: true,
+            className: 'text-ellipsis-element',
+            dataValueName: 'real-value',
+            hoverExpand:false
+        }
 
         if (n === undefined || typeof n != 'number') {
 
@@ -22,35 +28,27 @@
         }
 
         // This is the easiest way to have default options.
-        var settings = $.extend({
-            showTitle: true,
-            className: 'text-ellipsis-element',
-            dataValueName: 'real-value',
-            hoverExpand:false
-        }, options);
+        this.settings = $.extend(this.default, options);
 
         var el = this;
 
 
         el.text(textellipsis(text, n));
 
-        el.data(settings.dataValueName, text)
-        if (!el.hasClass(settings.className)) {
+        el.data(this.settings.dataValueName, text)
+        if (!el.hasClass(this.settings.className)) {
 
-            el.addClass(settings.className)
+            el.addClass(this.settings.className)
         }
 
 
 
         // Set title
 
-        if (settings.showTitle) {
-            el.attr('title', el.data(settings.dataValueName));
-        }
+        if (this.settings.showTitle) el.attr('title', el.data(this.settings.dataValueName));
 
-        if(!settings.hoverExpand) {
-            return el;
-        }
+        if(!this.settings.hoverExpand) return el;
+
 
         // Events
 
@@ -59,13 +57,13 @@
 
         el.on('mouseover', function () {
 
-            el.text(el.data(settings.dataValueName))
+            el.text(el.data(el.settings.dataValueName))
 
         });
 
         el.on('mouseleave', function () {
 
-            el.text(textellipsis(el.data(settings.dataValueName), n));
+            el.text(textellipsis(el.data(el.settings.dataValueName), n));
         })
 
 
